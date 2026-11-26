@@ -6,7 +6,7 @@ Werkzeug: Claude Code (Desktop-App), Modell Claude Opus 5.5. Die Arbeitsregeln s
 
 | Datum | Auftrag | Ergebnis | Probleme | Entscheidung Aakash |
 | --- | --- | --- | --- | --- |
-| 26.11.2026 | AP0 Setup: Repo sichten, Mockup lesen, Grundgerüst, Projekt- und Doku-Dateien anlegen, Arbeitspakete vorschlagen | Mockup (6 Seiten) gelesen und zusammengefasst; `.claude/settings.json`, `AGENTS.md`, `CLAUDE.md`, `docs/ki-einsatz.md`, `.env.example` angelegt; Vorschlag für Arbeitspakete und offene Fragen | `npx sv create` war schon gelaufen (nicht erneut ausgeführt); PDF-Mockup liess sich nicht direkt lesen; Aufgabenstellung und README-Vorlage fehlen im Repo | offen |
+| 26.11.2026 | AP0 Setup: Repo sichten, Mockup lesen, Grundgerüst, Projekt- und Doku-Dateien anlegen, Arbeitspakete vorschlagen | Mockup (6 Seiten) gelesen und zusammengefasst; `.claude/settings.json`, `AGENTS.md`, `CLAUDE.md`, `docs/ki-einsatz.md`, `.env.example` angelegt; Vorschlag für Arbeitspakete und offene Fragen | `npx sv create` war schon gelaufen (nicht erneut ausgeführt); PDF-Mockup liess sich nicht direkt lesen; Aufgabenstellung und README-Vorlage fehlen im Repo | Arbeitspakete AP1–AP7 freigegeben; alle Empfehlungen zu F1–F8 angenommen (siehe `AGENTS.md`, Abschnitt «Entscheidungen»); Schriften noch offen |
 
 ## Situationen
 

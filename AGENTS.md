@@ -42,6 +42,22 @@ Content-Planer Mockup.pdf   Figma-Mockup (Design-Vorlage)
 
 Ordner, die es noch nicht gibt, entstehen mit dem ersten Arbeitspaket, das sie braucht.
 
+## Entscheidungen (26.11.2026, von Aakash freigegeben)
+
+- **Arbeitspakete:** AP1 Deployment & DB · AP2 Layout & Design · AP3 Idee notieren + Ideen-Board · AP4 Einplanen/Bearbeiten · AP5 Wochenansicht (Dashboard) · AP6 Status weiterschalten · AP7 Abschluss.
+- **Datenmodell:** eine Collection `posts`. Eine Idee ist ein Post mit Status `idee` ohne Datum; Einplanen ändert nur Felder.
+- **Felder einer Idee:** Titel, Kategorie aus fester Liste (Event, Mitglieder, Sponsoring, Fun, Werbung), Notiz (optional). «Von» und Erstelldatum setzt die App.
+- **Personen:** feste Liste im Code (Lea Mustermann = fest eingestellte Person, Tim, Sara, Oli). Später durch Team-Mitglieder ersetzt.
+- **Status:** Idee → In Arbeit → Geplant → Veröffentlicht. Weiterschalten per Knopf «Weiter zu …» auf jeder Karte im Board und auf der Bearbeiten-Seite.
+- **Einplanen:** eigene Seite `/posts/[id]` (nicht als Panel im Dashboard).
+- **Dashboard:** Wochenraster mit Woche vor/zurück, Ideen-Ablage (3 neueste + Link zum Board), Begrüssung mit Zahlen.
+- **Styling:** eigenes CSS (globale CSS-Variablen + scoped Styles), kein Tailwind. Schriften: noch offen (Klärung in AP2).
+- **Löschen:** Knopf «Löschen» auf der Bearbeiten-Seite.
+
+### Mögliche Erweiterungen (für README Kapitel 4)
+
+Login, Teams mit Einladungscode, «Für dich diese/nächste Woche», Toast mit «Rückgängig», Drag & Drop (Einplanen und Status), Einplanen als Panel im Dashboard (wie Mockup S. 4).
+
 ## Befehle
 
 | Befehl | Zweck |
