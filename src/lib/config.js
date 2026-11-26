@@ -38,10 +38,10 @@ export const PLATTFORMEN = [
 
 export const KATEGORIEN = ['Event', 'Mitglieder', 'Sponsoring', 'Fun', 'Werbung'];
 
-/** Status in der Reihenfolge des Workflows. */
+/** Status in der Reihenfolge des Workflows. `spalte` ist der Titel der Spalte im Ideen-Board. */
 export const STATUS = [
-	{ id: 'idee', name: 'Idee' },
-	{ id: 'in_arbeit', name: 'In Arbeit' },
-	{ id: 'geplant', name: 'Geplant' },
-	{ id: 'veroeffentlicht', name: 'Veröffentlicht' }
+	{ id: 'idee', name: 'Idee', spalte: 'Ideen' },
+	{ id: 'in_arbeit', name: 'In Arbeit', spalte: 'In Arbeit' },
+	{ id: 'geplant', name: 'Geplant', spalte: 'Geplant' },
+	{ id: 'veroeffentlicht', name: 'Veröffentlicht', spalte: 'Veröffentlicht' }
 ];
