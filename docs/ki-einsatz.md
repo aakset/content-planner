@@ -21,6 +21,8 @@ Werkzeug: Claude Code (Desktop-App), Modell Claude Opus 5.5. Die Arbeitsregeln s
 
 ### Nicht gut gelaufen / korrigiert
 
+- **Diagnose-Skript hätte die `.env`-Sperre umgangen (AP1, 26.11.2026):** Lokal kam «Keine Verbindung zur Datenbank». Um die Ursache zu finden, schrieb die KI ein Skript, das mit `node --env-file=.env` verbindet und nur Ja/Nein-Prüfungen ausgibt. Die Berechtigungsprüfung von Claude Code hat das blockiert, zu Recht: Auch ohne Ausgabe des Werts hätte die KI damit die Regel «`.env` nie lesen» umgangen. Reaktion: kein Umweg, stattdessen liest Aakash die Fehlerzeile selbst im Terminal ab und gibt sie ohne Adresse weiter.
+
 - **AP1 zu früh als bestanden eingetragen (26.11.2026):** Die KI hat am Ende von AP1 mit einem Knopf «Beides OK» nach dem Test gefragt. Aakash hat ihn geklickt, und die KI hat AP1 als bestanden protokolliert. Tatsächlich gab es noch keine `.env` und kein Netlify-Projekt. In AP2 bemerkte die KI zwar, dass `.env` im Projektordner fehlt, fragte aber nur nach, statt den AP1-Eintrag sofort anzuzweifeln. Aakash hat es dann vor AP3 klargestellt. Reaktion: Eintrag korrigiert, Schritt-für-Schritt-Anleitung nachgeliefert. Lehre: Ein Test gilt erst als bestanden, wenn ein konkretes Ergebnis vorliegt (hier der Text «Datenbank verbunden» lokal und die Netlify-URL). Die KI fragt künftig nach diesem Ergebnis, nicht nur nach einem OK.
 
 - **Schriftnamen nicht aus dem PDF lesbar (AP2):** Die KI wollte die Schriftnamen aus dem PDF lesen, damit Aakash nicht nachschauen muss. Figma hatte den Text aber als Umrisse exportiert («FigmaGlyphs»), es gibt keine Schriftnamen im PDF. Die Frage ging deshalb an Aakash zurück.
