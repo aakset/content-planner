@@ -22,6 +22,7 @@ Prototyp für das Modul **Prototyping (ZHAW)**, Autor: Aakash Sethi.
 - Datenbankverbindung über die Umgebungsvariable `DB_URI` (Vorlage: `.env.example`). **SvelteKit 3:** Umgebungsvariablen werden in `src/env.js` mit `defineEnvVars` deklariert und serverseitig aus `$app/env/private` importiert (`$env/dynamic/private` gibt es nicht mehr).
 - Datenbank `content_planner`, Collection `posts`; Zugriff nur über `src/lib/server/db.js`
 - Netlify: `netlify.toml` (Build-Befehl, Ausgabeordner `build`, Node 24)
+- Live-URL: https://contentplannnner.netlify.app (deployt automatisch bei jedem Push auf `main`)
 - Paketmanager: npm
 - Import-Alias: `#lib` bzw. `#lib/*` (in `package.json` unter `imports` definiert)
 
