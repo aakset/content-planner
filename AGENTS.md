@@ -20,7 +20,8 @@ Prototyp für das Modul **Prototyping (ZHAW)**, Autor: Aakash Sethi.
 - MongoDB-Node-Treiber (`mongodb`)
 - Deployment: `@sveltejs/adapter-netlify` (in SvelteKit 3 wird der Adapter in `vite.config.js` konfiguriert)
 - Datenbankverbindung über die Umgebungsvariable `DB_URI` (Vorlage: `.env.example`). **SvelteKit 3:** Umgebungsvariablen werden in `src/env.js` mit `defineEnvVars` deklariert und serverseitig aus `$app/env/private` importiert (`$env/dynamic/private` gibt es nicht mehr).
-- Datenbank `content_planner`, Collection `posts`; Zugriff nur über `src/lib/server/db.js`
+- Datenbank `content_planner`, Collection `posts`; Zugriff nur über `src/lib/server/`
+- Dokument in `posts`: `titel`, `kategorie`, `notiz`, `status` (`idee` | `in_arbeit` | `geplant` | `veroeffentlicht`), `erstelltVon` (Personen-ID), `erstelltAm` (Date). Einplan-Felder folgen in AP4.
 - Netlify: `netlify.toml` (Build-Befehl, Ausgabeordner `build`, Node 24)
 - Live-URL: https://contentplannnner.netlify.app (deployt automatisch bei jedem Push auf `main`)
 - Paketmanager: npm
@@ -35,14 +36,17 @@ src/
   env.js             Deklaration der Umgebungsvariablen (DB_URI)
   lib/
     assets/          statische Assets (favicon)
-    server/          ALLE Datenbankzugriffe (nur hier!), z. B. db.js
-    components/      wiederverwendbare Svelte-Komponenten (Sidebar, Avatar)
+    server/          ALLE Datenbankzugriffe (nur hier!)
+      db.js          Verbindung, Collection `posts`
+      posts.js       Posts lesen/speichern (`allePosts`, `ideeErstellen`), Typ `Post`
+    components/      wiederverwendbare Svelte-Komponenten (Sidebar, Avatar, Meldung, BoardSpalte, IdeaCard)
+    datum.js         Datumsangaben in Schweizer Zeit («heute», «gestern», «20. Nov»)
     config.js        feste Werte: Team, Personen, Plattformen, Kategorien, Status
   routes/            Seiten und Form Actions
     +layout.svelte   Seitenleiste + Inhalt (alle Seiten)
     +page.*          Startseite (bis AP5: Verbindungstest)
-    board/           Ideen-Board (AP3)
-    ideen/neu/       Idee notieren (AP3)
+    board/           Ideen-Board: 4 Spalten nach Status (load aus MongoDB)
+    ideen/neu/       Idee notieren: Formular + Form Action, danach Weiterleitung zu /board?neu=1
 static/              Dateien, die 1:1 ausgeliefert werden
 netlify.toml         Build-Einstellungen für Netlify
 docs/
