@@ -1,0 +1,110 @@
+/* Globale Stile: Farben und Grundstile aus dem Figma-Mockup.
+   Komponenten verwenden diese Variablen in ihren eigenen <style>-Blöcken. */
+
+:root {
+	/* Farben (aus dem Mockup gemessen) */
+	--c-dunkel: #262f40; /* Seitenleiste, Toast, aktiver Status */
+	--c-dunkel-aktiv: #7f8592; /* Team-Box und aktiver Menüpunkt */
+	--c-gelb: #fdf3c4; /* Ideen, «+ Idee notieren» */
+	--c-instagram: #e26f8f;
+	--c-tiktok: #54ab8f;
+	--c-in-arbeit: #e59e40;
+	--c-geplant: #54aa6f;
+	--c-spalte: #f7f8f9; /* Tag-Spalte, Board-Spalte */
+	--c-heute: #ecf2f7; /* heutiger Tag */
+	--c-text: #000000;
+	--c-text-grau: #6b7280;
+	--c-rand: #9ea2a9;
+	--c-weiss: #ffffff;
+	--c-fehler: #b42318;
+	--c-fokus: #2c6ff7;
+
+	/* Schriften: vorläufig Systemschrift, bis die Figma-Schriften feststehen */
+	--font-heading: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	--font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+	--radius: 8px;
+	--radius-gross: 12px;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-body);
+	font-size: 16px;
+	line-height: 1.4;
+	color: var(--c-text);
+	background: var(--c-weiss);
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--font-heading);
+	font-weight: 800;
+	line-height: 1.2;
+	margin: 0 0 0.5rem;
+}
+
+h1 {
+	font-size: 1.6rem;
+}
+
+a {
+	color: inherit;
+}
+
+/* Knöpfe */
+.knopf {
+	display: inline-block;
+	padding: 0.6rem 1.2rem;
+	border: 1px solid var(--c-text);
+	border-radius: var(--radius);
+	background: var(--c-text);
+	color: var(--c-weiss);
+	font: inherit;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.knopf-hell {
+	background: var(--c-weiss);
+	color: var(--c-text);
+}
+
+.knopf-gelb {
+	background: var(--c-gelb);
+	border-color: var(--c-gelb);
+	color: var(--c-text);
+}
+
+/* Formularfelder */
+label {
+	display: block;
+	font-size: 0.9rem;
+	margin-bottom: 0.25rem;
+}
+
+input,
+select,
+textarea {
+	width: 100%;
+	padding: 0.55rem 0.7rem;
+	border: 1px solid var(--c-text);
+	border-radius: var(--radius);
+	font: inherit;
+	background: var(--c-weiss);
+}
+
+/* Sichtbarer Fokus für Tastatur-Bedienung */
+:focus-visible {
+	outline: 2px solid var(--c-fokus);
+	outline-offset: 2px;
+}
