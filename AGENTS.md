@@ -23,7 +23,7 @@ Prototyp für das Modul **Prototyping (ZHAW)**, Autor: Aakash Sethi.
 - Datenbank `content_planner`, Collection `posts`; Zugriff nur über `src/lib/server/`
 - Dokument in `posts`: `titel`, `kategorie`, `notiz`, `status` (`idee` | `in_arbeit` | `geplant` | `veroeffentlicht`), `erstelltVon` (Personen-ID), `erstelltAm` (Date). Einplan-Felder folgen in AP4.
 - Netlify: `netlify.toml` (Build-Befehl, Ausgabeordner `build`, Node 24)
-- Live-URL: https://contentplannnner.netlify.app (deployt automatisch bei jedem Push auf `main`)
+- Live-URL: https://contentplannnner.netlify.app (deployt automatisch bei jedem Push auf `main`). **Offen:** «Team protection» in Netlify ausschalten, sonst sehen Dozierende nur eine Anmeldeseite.
 - Paketmanager: npm
 - Import-Alias: `#lib` bzw. `#lib/*` (in `package.json` unter `imports` definiert)
 
