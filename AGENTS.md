@@ -30,12 +30,18 @@ Prototyp für das Modul **Prototyping (ZHAW)**, Autor: Aakash Sethi.
 ```
 src/
   app.html, app.d.ts
+  app.css            globale Farben (CSS-Variablen), Schriften, Grundstile (.knopf, Formularfelder)
   env.js             Deklaration der Umgebungsvariablen (DB_URI)
   lib/
     assets/          statische Assets (favicon)
     server/          ALLE Datenbankzugriffe (nur hier!), z. B. db.js
-    components/      wiederverwendbare Svelte-Komponenten
+    components/      wiederverwendbare Svelte-Komponenten (Sidebar, Avatar)
+    config.js        feste Werte: Team, Personen, Plattformen, Kategorien, Status
   routes/            Seiten und Form Actions
+    +layout.svelte   Seitenleiste + Inhalt (alle Seiten)
+    +page.*          Startseite (bis AP5: Verbindungstest)
+    board/           Ideen-Board (AP3)
+    ideen/neu/       Idee notieren (AP3)
 static/              Dateien, die 1:1 ausgeliefert werden
 netlify.toml         Build-Einstellungen für Netlify
 docs/
@@ -55,7 +61,7 @@ Ordner, die es noch nicht gibt, entstehen mit dem ersten Arbeitspaket, das sie b
 - **Status:** Idee → In Arbeit → Geplant → Veröffentlicht. Weiterschalten per Knopf «Weiter zu …» auf jeder Karte im Board und auf der Bearbeiten-Seite.
 - **Einplanen:** eigene Seite `/posts/[id]` (nicht als Panel im Dashboard).
 - **Dashboard:** Wochenraster mit Woche vor/zurück, Ideen-Ablage (3 neueste + Link zum Board), Begrüssung mit Zahlen.
-- **Styling:** eigenes CSS (globale CSS-Variablen + scoped Styles), kein Tailwind. Schriften: noch offen (Klärung in AP2).
+- **Styling:** eigenes CSS (globale CSS-Variablen + scoped Styles), kein Tailwind. Schriften: noch offen; vorläufig Systemschrift über `--font-heading` / `--font-body` in `src/app.css`.
 - **Löschen:** Knopf «Löschen» auf der Bearbeiten-Seite.
 
 ### Mögliche Erweiterungen (für README Kapitel 4)
