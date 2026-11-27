@@ -16,6 +16,20 @@ function tagInZuerich(datum) {
 	return { jahr, monat, tag };
 }
 
+const WOCHENTAGE = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+
+/**
+ * Kurzes Datum für Karten, z. B. «Fr, 27. Nov». Erwartet Text im Format JJJJ-MM-TT.
+ * @param {string} datum
+ */
+export function kurzDatum(datum) {
+	if (!datum) return '';
+	const [jahr, monat, tag] = datum.split('-').map(Number);
+	// Nur für den Wochentag; UTC, damit keine Zeitzone dazwischenfunkt
+	const wochentag = WOCHENTAGE[new Date(Date.UTC(jahr, monat - 1, tag)).getUTCDay()];
+	return `${wochentag}, ${tag}. ${MONATE[monat - 1]}`;
+}
+
 /**
  * Kurzangabe, wann etwas erstellt wurde: «heute», «gestern» oder z. B. «20. Nov».
  * @param {Date} datum
