@@ -21,7 +21,7 @@ Prototyp für das Modul **Prototyping (ZHAW)**, Autor: Aakash Sethi.
 - Deployment: `@sveltejs/adapter-netlify` (in SvelteKit 3 wird der Adapter in `vite.config.js` konfiguriert)
 - Datenbankverbindung über die Umgebungsvariable `DB_URI` (Vorlage: `.env.example`). **SvelteKit 3:** Umgebungsvariablen werden in `src/env.js` mit `defineEnvVars` deklariert und serverseitig aus `$app/env/private` importiert (`$env/dynamic/private` gibt es nicht mehr).
 - Datenbank `content_planner`, Collection `posts`; Zugriff nur über `src/lib/server/`
-- Dokument in `posts`: `titel`, `kategorie`, `notiz`, `status` (`idee` | `in_arbeit` | `geplant` | `veroeffentlicht`), `erstelltVon` (Personen-ID), `erstelltAm` (Date). Einplan-Felder folgen in AP4.
+- Dokument in `posts`: `titel`, `kategorie`, `notiz`, `status` (`idee` | `in_arbeit` | `geplant` | `veroeffentlicht`), `erstelltVon` (Personen-ID), `erstelltAm` (Date), `datum` ("JJJJ-MM-TT"), `uhrzeit` ("HH:MM"), `zustaendig` (Personen-ID), `plattform` (`instagram` | `tiktok`). Bei Status `idee` sind die letzten vier optional, sonst Pflicht.
 - Netlify: `netlify.toml` (Build-Befehl, Ausgabeordner `build`, Node 24)
 - Live-URL: https://contentplannnner.netlify.app (deployt automatisch bei jedem Push auf `main`). **Offen:** «Team protection» in Netlify ausschalten, sonst sehen Dozierende nur eine Anmeldeseite.
 - Paketmanager: npm
@@ -38,15 +38,17 @@ src/
     assets/          statische Assets (favicon)
     server/          ALLE Datenbankzugriffe (nur hier!)
       db.js          Verbindung, Collection `posts`
-      posts.js       Posts lesen/speichern (`allePosts`, `ideeErstellen`), Typ `Post`
-    components/      wiederverwendbare Svelte-Komponenten (Sidebar, Avatar, Meldung, BoardSpalte, IdeaCard)
-    datum.js         Datumsangaben in Schweizer Zeit («heute», «gestern», «20. Nov»)
+      posts.js       Posts lesen/speichern/löschen (`allePosts`, `postLaden`, `ideeErstellen`, `postSpeichern`, `postLoeschen`), Typ `Post`
+      pruefung.js    serverseitige Prüfung der Formulare (`leseFormular`, `pruefeIdee`, `pruefePost`)
+    components/      wiederverwendbare Svelte-Komponenten (Sidebar, Avatar, Meldung, BoardSpalte, IdeaCard, PostCard, ChipAuswahl)
+    datum.js         Datumsangaben («heute», «gestern», «20. Nov», «Fr, 27. Nov»), Schweizer Zeit
     config.js        feste Werte: Team, Personen, Plattformen, Kategorien, Status
   routes/            Seiten und Form Actions
     +layout.svelte   Seitenleiste + Inhalt (alle Seiten)
     +page.*          Startseite (bis AP5: Verbindungstest)
     board/           Ideen-Board: 4 Spalten nach Status (load aus MongoDB)
-    ideen/neu/       Idee notieren: Formular + Form Action, danach Weiterleitung zu /board?neu=1
+    ideen/neu/       Idee notieren: Formular + Form Action, danach /board?meldung=neu
+    posts/[id]/      Einplanen/Bearbeiten: Actions `speichern` und `loeschen`, danach /board?meldung=gespeichert|geloescht
 static/              Dateien, die 1:1 ausgeliefert werden
 netlify.toml         Build-Einstellungen für Netlify
 docs/
@@ -68,6 +70,7 @@ Ordner, die es noch nicht gibt, entstehen mit dem ersten Arbeitspaket, das sie b
 - **Dashboard:** Wochenraster mit Woche vor/zurück, Ideen-Ablage (3 neueste + Link zum Board), Begrüssung mit Zahlen.
 - **Styling:** eigenes CSS (globale CSS-Variablen + scoped Styles), kein Tailwind. Schriften: noch offen; vorläufig Systemschrift über `--font-heading` / `--font-body` in `src/app.css`.
 - **Löschen:** Knopf «Löschen» auf der Bearbeiten-Seite.
+- **AP4 (27.11.2026):** Im Formular sind alle 4 Status wählbar; Datum und Uhrzeit als zwei Textfelder.
 
 ### Mögliche Erweiterungen (für README Kapitel 4)
 
