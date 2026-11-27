@@ -15,6 +15,7 @@
 <article class="karte">
 	<h3>{post.titel}</h3>
 	<p class="meta">{post.kategorie}, von {von}, {erstelltText(post.erstelltAm)}</p>
+	<a class="einplanen" href="/posts/{post.id}">Einplanen</a>
 </article>
 
 <style>
@@ -32,8 +33,21 @@
 	}
 
 	.meta {
-		margin: 0;
+		margin: 0 0 0.6rem;
 		font-size: 0.85rem;
 		color: var(--c-text-grau);
+	}
+
+	.einplanen {
+		display: inline-block;
+		padding: 0.25rem 0.9rem;
+		border-radius: var(--radius);
+		background: var(--c-weiss);
+		font-size: 0.85rem;
+		text-decoration: none;
+	}
+
+	.einplanen:hover {
+		text-decoration: underline;
 	}
 </style>
